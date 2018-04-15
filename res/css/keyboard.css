@@ -1,0 +1,66 @@
+body {
+	background: none transparent;
+}
+
+.key {
+	width: 30px;
+	height: 30px;
+	background-color: #fffb73;
+	color: black;
+	float: left;
+	z-index: 1;
+	position: relative;
+	margin: -2px 2px;
+	text-align: center;
+	line-height: 25px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 2px solid #333;
+	font-weight: bold;
+	border-radius: 5px;
+	-webkit-transition: background 0.1s ease-in-out;
+    -moz-transition:    background 0.1s ease-in-out;
+    -ms-transition:     background 0.1s ease-in-out;
+    -o-transition:      background 0.1s ease-in-out;
+    transition:         background 0.1s ease-in-out;
+}
+
+.backgroundRed {
+	background-color: #FD90D8;
+}
+
+
+.l {
+	width: 40px;
+}
+
+.xl {
+	width: 50px;
+}
+
+.xxl {
+	width: 75px;
+}
+
+.ret1 {
+	width: 40px;
+	border-bottom-right-radius: 0px;
+}
+
+.ret2 {
+	height: 38px;
+	margin-top: -10px;
+	border-top: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.keyboard {
+	margin: 440px 5px 5px 250px;
+	position: absolute;
+}
+
+.row {
+	list-style-type: none;
+}
+

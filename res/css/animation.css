@@ -1,0 +1,166 @@
+body {
+	
+}
+
+#sky, #clouds{
+	margin-top: 20px;
+    position:absolute;
+    width: 994px;
+}
+
+#sky {
+    height: 585px;
+    background: transparent url(../Pictures/sky.jpg) 0 0px repeat-x;
+}
+
+#clouds {
+    height: 560px;
+    background: transparent url(../Pictures/clouds.png) 0 0px repeat-x;
+}
+
+#cloudLeft, #cloudRight{
+	margin-top: 135px;
+	height: 400px;
+	width: 400px;
+	position: absolute;
+}
+
+#cloudLeft{
+	margin-left: 50px;
+	margin-right: auto;
+	background: transparent url(../Pictures/wolkeLinks.png) 0 0px repeat-x;
+}
+
+#cloudRight{
+	margin-left: 540px;
+	background: transparent url(../Pictures/wolkeRechts.png) 0 0px repeat-x;
+}
+
+#dummy, #ufo{
+	margin-left: 45px;
+	margin-right: auto;
+	position: absolute;
+}
+
+#torso{
+	width: 160px;
+	height: 320px;
+}
+
+#armLeft, #armRight{
+	width: 30px;
+	height: 110px;
+}
+
+.fade-mouth{
+	-webkit-opacity: 0;
+	-webkit-transition: all 0.5s ease;
+}
+
+.fade-announcer{
+	-webkit-opacity: 0;
+	-webkit-transition: all 3s ease;
+}
+
+#armLeft{
+	margin-top: -20px;
+	margin-left: -144px;
+}
+
+#armRight{
+	margin-top: -20px;
+	margin-left: 54px;
+}
+
+.default-rotate{
+	-webkit-transform:rotate(0deg) translate3d( 0, 0, 0);
+	-webkit-transition:.9s;
+	-webkit-transform-origin: 50% 0%;
+}
+
+.rotate-right-arm{
+	-webkit-transform:rotate(-90deg) translate3d( 0, 0, 0);
+	-webkit-transition:.9s;
+	-webkit-transform-origin: 50% 0%;
+}
+
+.rotate-left-arm{
+	-webkit-transform:rotate(90deg) translate3d( 0, 0, 0);
+	-webkit-transition:.9s;
+	-webkit-transform-origin: 50% 0%;
+}
+
+#mouth{
+	width: 30px;
+	height: 30px;
+	margin-top: 49px;
+	margin-left: -63px;
+	position: absolute;
+}
+
+.moderator{
+	width: 290px;
+	height: 400px;
+	position: absolute;
+	left: 43%;
+	top: 22%;
+}
+
+#dummy{
+	width: 600px;
+	height: 400px;
+	margin-top: 160px;
+	background: transparent url(../Pictures/PinkySprites/psL.png) 0 0px repeat-x;
+}
+
+#ufo{
+	width: 400px;
+	height: 2000px;
+	margin-top: -390px;
+	background: transparent url(../Pictures/ufo.png) 0 0px repeat-x;
+}
+
+#playerOneStill, #playerTwoStill, #playerOneAction, #playerTwoAction, #blenderL, #blenderR{
+	margin-top: 50px;
+	height: 400px;
+	width: 600px;
+	margin-right: auto;
+	position: absolute;
+}
+
+#blenderL{
+	margin-left: 90px;
+	background: transparent 0 0px repeat-x;
+	background-image: url(../Pictures/PinkySprites/pbL.png);
+}
+
+#blenderR{
+	margin-left: 300px;
+	background: transparent 0 0px repeat-x;
+	background-image: url(../Pictures/PinkySprites/pbR.png);
+}
+
+#playerOneStill{
+	margin-left: 90px;
+	background: transparent 0 0px repeat-x;
+	background-image: url(../Pictures/PinkySprites/psL.png);
+}
+
+#playerOneAction{
+	margin-left: 90px;
+	background: transparent 0 0px repeat-x;
+	background-image: url(../Pictures/PinkySprites/paL.png);
+}
+
+#playerTwoStill{
+	margin-left: 300px;
+	background: transparent 0 0px repeat-x;
+	background-image: url(../Pictures/PinkySprites/psR.png);
+}
+
+#playerTwoAction{
+	margin-left: 300px;
+	background: transparent 0 0px repeat-x;
+	background-image: url(../Pictures/PinkySprites/paR.png);
+}
+

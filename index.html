@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Unicorn Twist</title>
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="res/css/keyboard.css">
+        <link rel="stylesheet" href="res/css/styles.css">
+        <link rel="stylesheet" href="res/css/cube.css">
+        <link rel="stylesheet" href="res/css/animation.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <audio id="sound" preload="auto"> 
+                <source id="s" src="res/Sounds/wiha.wav"/> 
+            </audio>
+            <audio id="song" preload="auto" loop="true"> 
+                <source src="res/Sounds/song.mp3"/> 
+            </audio>
+            <audio id="lift" preload="auto"> 
+                <source src="res/Sounds/oneFingers.wav"/> 
+            </audio>
+
+            <div id="pinkyAnimation">
+                <div id="sky"> </div>
+                <div id="clouds"> </div>
+                <div id="dummy"> </div>
+                <img id="attack-icon" class="attack-icon-invisible" src="res/Pictures/smooth.png">
+                <div id="cloudLeft" class="invisible"> </div>
+                <div id="cloudRight" class="invisible"> </div>
+                <div id="playerOneStill" class="invisible"> </div>
+                <div id="blenderL" class="invisible"> </div>
+                <div id="blenderR" class="invisible"> </div>
+                <div id="playerTwoStill" class="invisible"> </div>
+                <div id="playerTwoAction" class="invisible"> </div>
+                <div id="playerOneAction" class="invisible"> </div>
+                <div id="ufo"> </div>
+
+                <div class="moderator invisible">
+                    <img id="torso" src="res/Pictures/moderator.png">
+                    <img id="armLeft" class="default-rotate" src="res/Pictures/arm.png">
+                    <img id="armRight" class="default-rotate" src="res/Pictures/arm.png">
+                    <img id="mouth" src="res/Pictures/mund.png">
+                </div>
+                <div >
+                    <img id="icon_music" src="res/Pictures/Icons/pause.png">
+                </div>
+                <div ><img id="icon_sound" src="res/Pictures/Icons/volume_on.png"></div>
+                <div class="sound-icon-hover">
+                    <div id="music-button" class="snd-button attack-icon-invisible">Stop Music</div>
+                    <div id="sound-button" class="snd-button attack-icon-invisible">Stop Sound</div>
+                </div>
+            </div>
+
+
+            <div class="start">
+                <div class="header" id="header">
+                    <img src= "res/Pictures/Headers/title.png">    
+                </div>
+                <div id = "start-button" class="button">
+                        <img src= "res/Pictures/Buttons/start.png">
+                </div>
+                <div>
+                    <img class="hs-button" src="res/Pictures/Buttons/highscores.png">
+                </div>
+                    <div id = "help-button" class="help">
+                        <img src= "res/Pictures/Buttons/help.png">
+                    </div>
+            </div>
+
+            <div class = "player-select invisible">
+                <div class = "head">
+                    <div class = "description" id="description-left">
+                        <img id = "pic-left"class = "img-left">
+                        <div class="power-p1">
+                            <p class="nameP1">Pinky van Horse</p>
+                            <p class="attackP1">Attacke</p>
+                            <div class="progress-attack progress-striped">
+                                <div id="attackp1" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                            <p class="defenseP1">Verteidigung</p>
+                            <div class="progress-defense progress-striped">
+                                <div id="defensep1" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                            <p class="awesomenessP1">Awesomeness</p>
+                            <div class="progress-awesomeness progress-striped">
+                                <div id="awesomenessp1" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="header" id="header2">
+                        <img src="res/Pictures/Headers/playerSelect2.png">  
+                    </div>
+                        
+                    <div class = "description" id="description-right">
+                        <img id = "pic-right" class = "img-right" >
+                        <div class="power-p2">
+                        <p class="nameP2">Pinky van Horse</p>
+                            <p class="attackP2">Attacke</p>
+                            <div class="progress-attack progress-striped rotated">
+                                <div id="attackp2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                            <p class="defenseP2">Verteidigung</p>
+                            <div class="progress-defense progress-striped rotated">
+                                <div id="defensep2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                            <p class="awesomenessP2">Awesomeness</p>
+                            <div class="progress-awesomeness progress-striped rotated">
+                                <div id="awesomenessp2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class = "player-select-cube-left">
+                     <div class="scene">
+                        <div class="cube" id = "cube-left">
+                            <div class="cube-face  cube-face-front"></div>
+                            <div class="cube-face  cube-face-back"></div>
+                            <div class="cube-face  cube-face-left"></div>
+                            <img src = "res/Pictures/profilLeft.png"class="cube-face  cube-face-right">
+                            <img src = "res/Pictures/profilBlackyLeft.png" class="cube-face  cube-face-top">
+                            <img src = "res/Pictures/peggyProfilLeft.png" class="cube-face  cube-face-bottom">
+                        </div>
+                    </div>
+                </div>
+                <div class = "inputs">
+                    <div class = "st-button">
+                        <img  id= "start-ps" src = "res/Pictures/Buttons/start.png">
+                    </div>
+                </div>
+                <div class = "player-select-cube-right">
+                     <div class="scene">
+                        <div class="cube" id = "cube-right">
+                            <div class="cube-face  cube-face-front"></div>
+                            <div class="cube-face  cube-face-back"></div>
+                            <div class="cube-face  cube-face-left"></div>
+                            <img src = "res/Pictures/profilRight.png"class="cube-face  cube-face-right">
+                            <img src = "res/Pictures/profilBlackyRight.png" class="cube-face  cube-face-top">
+                            <img src = "res/Pictures/peggyProfilRight.png" class="cube-face  cube-face-bottom">
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class = "game invisible">
+                <div class = "game-over invisible">
+                    <h2 class = "text">Game over!</h2>
+                    <img id = "game-over-menu" class = "game-over-btn"src = "res/Pictures/Buttons/zumMenue.png">
+                    <img id = "game-over-play-again" class = "game-over-btn" src = "res/Pictures/Buttons/weiter.png">
+                </div>
+                    <div class="box" id="box-p1">
+                        <div class="display" id="display-p1">
+                            <div class="avatar" id="avatar-p1"><img src="res/Pictures/profilLeft.png" id="avatar1"></div>
+                            <div class="progress progress-striped" id="progress-p1">
+                                <div id="health-p1" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                            <div class="instructions" id="instructions-p1">
+                                <ul class="instr" id="instr-list-p1">
+                                
+
+                                </ul>
+                            </div>
+                        </div>                
+                        
+                        <div class="animation" id="animation-p1">
+
+                        </div>
+                    </div>
+                    <div class="box" id="box-p2">
+                        <div class="display" id="display-p2">
+                            <div class="avatar" id="avatar-p2"><img src="res/Pictures/profilRight.png" id="avatar2"></div>
+                            <div class="progress progress-striped rotated"  id="progress-p2">
+                                <div id="health-p2" class="progress-bar progress-bar-success rotated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                            <div class="instructions" id="instructions-p2">
+                                <ul class="instr" id="instr-list-p2">
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="animation" id="animation-p2">
+
+                        </div>
+                    </div>
+                    <div class="keyboard">
+                        <ul class="row" id="firstRow">
+                            <li class="key" id="220">°</li>
+                            <li class="key" id="49">1</li>
+                            <li class="key" id="50">2</li>
+                            <li class="key" id="51">3</li>
+                            <li class="key" id="52">4</li>
+                            <li class="key" id="53">5</li>
+                            <li class="key" id="54">6</li>
+                            <li class="key" id="55">7</li>
+                            <li class="key" id="56">8</li>
+                            <li class="key" id="57">9</li>
+                            <li class="key" id="48">0</li>
+                            <li class="key" id="219">ß</li>
+                            <li class="key" id="221">´</li>
+                            <li class="key xl" id="8">&#8656;</li>
+                        </ul>
+                        <ul class="row" id="secondRow">
+                            <li class="key l" id="9">&#8660;</li>
+                            <li class="key" id="81">Q</li>
+                            <li class="key" id="87">W</li>
+                            <li class="key" id="69">E</li>
+                            <li class="key" id="82">R</li>
+                            <li class="key" id="84">T</li>
+                            <li class="key" id="90">Z</li>
+                            <li class="key" id="85">U</li>
+                            <li class="key" id="73">I</li>
+                            <li class="key" id="79">O</li>
+                            <li class="key" id="80">P</li>
+                            <li class="key" id="186">Ü</li>
+                            <li class="key" id="187">+</li>
+                            <li class="key ret1" id="13">&#8629;</li>
+                        </ul>
+                        <ul class="row" id="secondRow">
+                            <li class="key xl" id="20">&#8659;</li>
+                            <li class="key" id="65">A</li>
+                            <li class="key" id="83">S</li>
+                            <li class="key" id="68">D</li>
+                            <li class="key" id="70">F</li>
+                            <li class="key" id="71">G</li>
+                            <li class="key" id="72">H</li>
+                            <li class="key" id="74">J</li>
+                            <li class="key" id="75">K</li>
+                            <li class="key" id="76">L</li>
+                            <li class="key" id="192">Ö</li>
+                            <li class="key" id="222">Ä</li>
+                            <li class="key" id="191">#</li>
+                            <li class="key ret2" id="13-1"></li>
+                        </ul>
+                        <ul class="row" id="tirdRow">
+                            <li class="key l" id="16">&#8657;</li>
+                            <li class="key" id="226">&#60;</li>
+                            <li class="key" id="89">Y</li>
+                            <li class="key" id="88">X</li>
+                            <li class="key" id="67">C</li>
+                            <li class="key" id="86">V</li>
+                            <li class="key" id="66">B</li>
+                            <li class="key" id="78">N</li>
+                            <li class="key" id="77">M</li>
+                            <li class="key" id="188">,</li>
+                            <li class="key" id="190">.</li>
+                            <li class="key" id="189">-</li>
+                            <li class="key xxl" id="16">&#8657;</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id= "total-highscore-view"class = "highscore-view invisible">
+                        <img src = "res/Pictures/Buttons/highscores.png" class = "highscore-title">
+                        <div id = "hs-list" class="highscore-list" >
+                            <table id = "hs" class = "table-hs" border="1">
+                                <tr>
+                                    <th>Winner</th>
+                                    <th>Loser</th>
+                                </tr>
+                            </table>
+                        </div>
+                     <img src="res/Pictures/line_grass.png" class="grass4">
+                    <div class = "statistics">
+                            <table id = "stats4" class = "table" >
+                              <tr>
+                                <th>Siege</th>
+                                <th>Niederlagen</th>
+                              </tr>
+                              </table>
+                            <img src="res/Pictures/profilLeft.png" class="uni1">
+                            <img src="res/Pictures/line_grass.png" class="grass1">
+                            <table id = "stats1" class = "table" >
+                              <tr>
+                                <th id = "pinky-won">0</th>
+                                <th id = "pinky-lost">0</th>
+                              </tr>
+                              </table>
+                              <img src="res/Pictures/profilBlackyLeft.png" class="uni2">
+                              <img src="res/Pictures/line_grass.png" class="grass2">
+                            <table id = "stats2" class = "table">
+                              <tr>
+                                <th id = "blacky-won">0</th>
+                                <th id = "blacky-lost">0</th>
+                              </tr>
+                              </table>
+                              <img src="res/Pictures/peggyProfilLeft.png" class="uni3">
+                              <img src="res/Pictures/line_grass.png" class="grass3">
+                            <table id = "stats3" class = "table" >
+                              <tr>
+                                <th id = "peggy-won">0</th>
+                                <th id = "peggy-lost">0</th>
+                              </tr>
+                              </table>
+                        </div>
+                            <button class = "reset">Zuruecksetzen</button>
+                        
+                </div>
+
+                <div id = "help-1" class = "help-view invisible">
+                    
+                    <h2 class = "help-text"></h2>
+
+                <div id= "start-demo" class = "st-demo-button">
+                    <img   src = "res/Pictures/Buttons/start.png">
+                </div>
+
+                <div class="scene demo-cube invisible">
+                    <div id= "cube-demo" class="cube ">
+                        <div class="cube-face  cube-face-front"></div>
+                        <div class="cube-face  cube-face-back"></div>
+                        <div class="cube-face  cube-face-left"></div>
+                        <img src = "res/Pictures/profilLeft.png"class="cube-face  cube-face-right">
+                        <img src = "res/Pictures/profilBlackyLeft.png" class="cube-face  cube-face-top">
+                        <img src = "res/Pictures/peggyProfilLeft.png" class="cube-face  cube-face-bottom">
+                    </div>
+                </div>
+                <div id= "next-demo" class = "next-step invisible">
+                    <img  id="demo-btn" src = "res/Pictures/Buttons/weiter.png">
+                </div>
+
+                    <div class="box invisible" id="box-demo">
+                        <div class="health" id="health-p1">
+                            <div class="placeholder " id="placeholder-p1"><img src="res/Pictures/profilLeft.png" class = "placeholder-demo"></div>
+                            <div class="progress progress-striped" id="health-p1">
+
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                
+                                </div>
+                            </div>
+                            <div class="instructions-demo" id="instructions-p1">
+                                <h3 class="instr-text" id="instr-text-p1">      Daumen auf A</h3>
+                                <div id="finger-picture-p1"></div>
+                                <div class="key" id="key-p1">A</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id= "demo-keyboard"class="keyboard invisible">
+                        <ul class="row" id="firstRow">
+                            <li class="key" id="220">°</li>
+                            <li class="key" id="49">1</li>
+                            <li class="key" id="50">2</li>
+                            <li class="key" id="51">3</li>
+                            <li class="key" id="52">4</li>
+                            <li class="key" id="53">5</li>
+                            <li class="key" id="54">6</li>
+                            <li class="key" id="55">7</li>
+                            <li class="key" id="56">8</li>
+                            <li class="key" id="57">9</li>
+                            <li class="key" id="48">0</li>
+                            <li class="key" id="219">ß</li>
+                            <li class="key" id="221">´</li>
+                            <li class="key xl" id="8">&#8656;</li>
+                        </ul>
+                        <ul class="row" id="secondRow">
+                            <li class="key l" id="9">&#8660;</li>
+                            <li class="key" id="81">Q</li>
+                            <li class="key" id="87">W</li>
+                            <li class="key" id="69">E</li>
+                            <li class="key" id="82">R</li>
+                            <li class="key" id="840">T</li>
+                            <li class="key" id="90">Z</li>
+                            <li class="key" id="85">U</li>
+                            <li class="key" id="730">I</li>
+                            <li class="key" id="79">O</li>
+                            <li class="key" id="80">P</li>
+                            <li class="key" id="186">Ü</li>
+                            <li class="key" id="187">+</li>
+                            <li class="key ret1" id="13">&#8629;</li>
+                        </ul>
+                        <ul class="row" id="secondRow">
+                            <li class="key xl" id="20">&#8659;</li>
+                            <li class="key" id="65">A</li>
+                            <li class="key" id="83">S</li>
+                            <li class="key" id="68">D</li>
+                            <li class="key" id="700">F</li>
+                            <li class="key" id="71">G</li>
+                            <li class="key" id="720">H</li>
+                            <li class="key" id="74">J</li>
+                            <li class="key" id="75">K</li>
+                            <li class="key" id="76">L</li>
+                            <li class="key" id="192">Ö</li>
+                            <li class="key" id="222">Ä</li>
+                            <li class="key" id="191">#</li>
+                            <li class="key ret2" id="13-1"></li>
+                        </ul>
+                        <ul class="row" id="tirdRow">
+                            <li class="key l" id="16">&#8657;</li>
+                            <li class="key" id="226">&#60;</li>
+                            <li class="key" id="89">Y</li>
+                            <li class="key" id="88">X</li>
+                            <li class="key" id="67">C</li>
+                            <li class="key" id="86">V</li>
+                            <li class="key" id="66">B</li>
+                            <li class="key" id="78">N</li>
+                            <li class="key" id="77">M</li>
+                            <li class="key" id="188">,</li>
+                            <li class="key" id="190">.</li>
+                            <li class="key" id="189">-</li>
+                            <li class="key xxl" id="16">&#8657;</li>
+
+                        </ul>
+                    </div>
+                    <div id = "c-1" class="circle-1 invisible">
+                        <div class = "pointers">→</div>
+                    </div>
+                    <div id = "c-2" class="circle-2 invisible">
+                        <div class = "pointers" >←</div>
+                    </div>
+                 </div>
+
+
+       
+        </div>
+        <div id="arrow_back_div">
+            <img id="arrow_back" src="res/Pictures/Icons/arrow_back.png">
+        </div>
+
+
+        <script src="libs/jquery-2.0.3.min.js"></script>
+        <script src="libs/underscore-min.js"></script>
+        <script src="libs/url.min.js"></script>
+        <script src="libs/jquery.spritely-0.1.js"></script>
+
+        
+        <script src="src/App.js"></script>
+        <script src="src/SoundModel.js"></script>
+        <script src="src/KeyboardView.js"></script>
+        <script src="src/GameLogic.js"></script>
+        <script src="src/GameView.js"></script>
+        <script src="src/HighscoreView.js"></script>
+        <script src="src/CubeModel.js"></script>
+        <script src="src/Database.js"></script>
+        <script src="src/Help.js"></script>
+        <script src="src/PlayerSelectView.js"></script>
+        <script src="src/StartMenuView.js"></script>
+        <script src="src/ViewController.js"></script>
+        <script src="src/Animation.js"></script>
+        
+
+       
+        <script>
+            App.init();
+        </script>
+    </body>
+</html>
+
