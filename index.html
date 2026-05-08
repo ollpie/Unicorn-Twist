@@ -74,7 +74,6 @@
             <div class = "player-select invisible">
                 <div class = "head">
                     <div class = "description" id="description-left">
-                        <img id = "pic-left"class = "img-left">
                         <div class="power-p1">
                             <p class="nameP1">Pinky van Horse</p>
                             <p class="attackP1">Attacke</p>
@@ -98,19 +97,18 @@
                     </div>
                         
                     <div class = "description" id="description-right">
-                        <img id = "pic-right" class = "img-right" >
                         <div class="power-p2">
                         <p class="nameP2">Pinky van Horse</p>
                             <p class="attackP2">Attacke</p>
-                            <div class="progress-attack progress-striped rotated">
+                            <div class="progress-attack progress-striped">
                                 <div id="attackp2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
                             </div>
                             <p class="defenseP2">Verteidigung</p>
-                            <div class="progress-defense progress-striped rotated">
+                            <div class="progress-defense progress-striped">
                                 <div id="defensep2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
                             </div>
                             <p class="awesomenessP2">Awesomeness</p>
-                            <div class="progress-awesomeness progress-striped rotated">
+                            <div class="progress-awesomeness progress-striped">
                                 <div id="awesomenessp2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
                             </div>
                         </div>
@@ -120,15 +118,18 @@
 
                 <div class = "player-select-cube-left">
                      <p class="cube-select-hint">Click to select</p>
-                     <div class="scene">
-                        <div class="cube" id = "cube-left">
-                            <div class="cube-face  cube-face-front"></div>
-                            <div class="cube-face  cube-face-back"></div>
-                            <div class="cube-face  cube-face-left"></div>
-                            <img src = "res/Pictures/profilLeft.png"class="cube-face  cube-face-right">
-                            <img src = "res/Pictures/profilBlackyLeft.png" class="cube-face  cube-face-top">
-                            <img src = "res/Pictures/peggyProfilLeft.png" class="cube-face  cube-face-bottom">
+                     <div class="reel-viewport" id="reel-left">
+                        <div class="reel-strip" id="strip-left">
+                            <img src="res/Pictures/profilLeft.png">
+                            <img src="res/Pictures/profilBlackyLeft.png">
+                            <img src="res/Pictures/peggyProfilLeft.png">
                         </div>
+                    </div>
+                    <div class="reel-stars" id="stars-left">
+                        <span class="reel-star">★</span>
+                        <span class="reel-star">★</span>
+                        <span class="reel-star">★</span>
+                        <span class="reel-star">★</span>
                     </div>
                 </div>
                 <div class = "inputs">
@@ -138,15 +139,18 @@
                 </div>
                 <div class = "player-select-cube-right">
                      <p class="cube-select-hint">Click to select</p>
-                     <div class="scene">
-                        <div class="cube" id = "cube-right">
-                            <div class="cube-face  cube-face-front"></div>
-                            <div class="cube-face  cube-face-back"></div>
-                            <div class="cube-face  cube-face-left"></div>
-                            <img src = "res/Pictures/profilRight.png"class="cube-face  cube-face-right">
-                            <img src = "res/Pictures/profilBlackyRight.png" class="cube-face  cube-face-top">
-                            <img src = "res/Pictures/peggyProfilRight.png" class="cube-face  cube-face-bottom">
+                     <div class="reel-viewport" id="reel-right">
+                        <div class="reel-strip" id="strip-right">
+                            <img src="res/Pictures/profilRight.png">
+                            <img src="res/Pictures/profilBlackyRight.png">
+                            <img src="res/Pictures/peggyProfilRight.png">
                         </div>
+                    </div>
+                    <div class="reel-stars" id="stars-right">
+                        <span class="reel-star">★</span>
+                        <span class="reel-star">★</span>
+                        <span class="reel-star">★</span>
+                        <span class="reel-star">★</span>
                     </div>
                 </div>
             </div>
@@ -430,6 +434,7 @@
         <script src="libs/underscore-min.js"></script>
         <script src="libs/url.min.js"></script>
         <script src="libs/jquery.spritely-0.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
         
         <script src="src/App.js"></script>
