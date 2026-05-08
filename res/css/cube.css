@@ -69,11 +69,17 @@
   -moz-transform: rotateX(90deg); 
 }
 
+@font-face {
+	font-family: "CurlyGirl";
+	src: url("../Fonts/JandaCurlygirlChunky.ttf");
+}
+
 .player-select-cube-left, .player-select-cube-right{
 	position:absolute;
 	width: 300px;
 	height:500px;
 	margin-top: 50px;
+	cursor: pointer;
 }
 
 .player-select-cube-left{
@@ -81,7 +87,23 @@
 }
 
 .player-select-cube-right{
-	right:5px;	
+	right:5px;
+}
+
+.cube-select-hint {
+	font-family: "CurlyGirl", cursive;
+	color: #9A53D3;
+	font-size: 17px;
+	text-align: center;
+	position: absolute;
+	top: 10px;
+	left: 0;
+	right: 0;
+	margin: 0;
+	pointer-events: none;
+	text-shadow: 1px 1px 0 #fff, 0 0 8px rgba(208, 144, 181, 0.6);
+	letter-spacing: 1px;
+	opacity: 0.85;
 }
 
 .scene {
@@ -92,4 +114,11 @@
 	height: 200px;
 	-webkit-perspective: 600px;
 	-moz-perspective: 600px;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.player-select-cube-left:hover .scene,
+.player-select-cube-right:hover .scene {
+	transform: translateY(-10px) scale(1.06);
+	filter: drop-shadow(0 12px 20px rgba(154, 83, 211, 0.45));
 }
