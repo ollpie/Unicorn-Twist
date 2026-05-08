@@ -3,16 +3,24 @@
 	src: url("../Fonts/JandaCurlygirlChunky.ttf");
 }
 
+/* ── Float animation ── */
+@keyframes unicorn-float {
+	0%, 100% { transform: translateY(0px); }
+	50%       { transform: translateY(-16px); }
+}
+
 .player-select-cube-left, .player-select-cube-right {
 	position: absolute;
 	width: 300px;
 	height: 500px;
 	margin-top: 50px;
 	cursor: pointer;
+	animation: unicorn-float 3s ease-in-out infinite;
+	will-change: transform;
 }
 
-.player-select-cube-left { left: 100px; }
-.player-select-cube-right { right: 5px; }
+.player-select-cube-left  { left: 100px;  animation-delay:  0s;   }
+.player-select-cube-right { right: 5px;   animation-delay: -1.5s; }
 
 .cube-select-hint {
 	font-family: "CurlyGirl", cursive;
@@ -35,7 +43,63 @@
 	text-align: left;
 }
 
+/* ── Cloud pedestal ── */
+.cloud-pedestal {
+	position: absolute;
+	pointer-events: none;
+	left: 20px;
+	width: 260px;
+	top: 220px;
+	height: 90px;
+	background: rgba(255, 255, 255, 0.92);
+	border-radius: 50% / 60%;
+	box-shadow:
+		0 8px 24px rgba(200, 200, 255, 0.35),
+		0 2px 8px  rgba(180, 180, 220, 0.20);
+}
+
+.cloud-pedestal::before {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+	top: -28px; left: 28px;
+	width: 80px; height: 60px;
+	background: rgba(255, 255, 255, 0.88);
+	border-radius: 50%;
+}
+
+.cloud-pedestal::after {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+	top: -20px; right: 30px;
+	width: 100px; height: 55px;
+	background: rgba(255, 255, 255, 0.88);
+	border-radius: 50%;
+}
+
 /* ── Slot machine reel ── */
+@keyframes viewport-idle-shimmer {
+	0%, 100% {
+		box-shadow:
+			inset 0 0 20px rgba(255, 180, 230, 0.15),
+			0 0 20px rgba(255, 160, 220, 0.35),
+			0 0 45px rgba(180, 140, 255, 0.15);
+	}
+	33% {
+		box-shadow:
+			inset 0 0 20px rgba(180, 230, 255, 0.15),
+			0 0 22px rgba(150, 210, 255, 0.35),
+			0 0 50px rgba(100, 200, 255, 0.15);
+	}
+	66% {
+		box-shadow:
+			inset 0 0 20px rgba(255, 230, 150, 0.15),
+			0 0 20px rgba(255, 210, 100, 0.30),
+			0 0 45px rgba(255, 180,  80, 0.12);
+	}
+}
+
 .reel-viewport {
 	position: absolute;
 	top: 75px;
@@ -44,11 +108,12 @@
 	height: 200px;
 	overflow: hidden;
 	border-radius: 30px;
-	border: 2px solid #9A53D3;
 	box-shadow:
-		inset 0 0 30px rgba(154, 83, 211, 0.2),
-		0 0 25px rgba(154, 83, 211, 0.35);
+		inset 0 0 20px rgba(255, 180, 230, 0.15),
+		0 0 20px rgba(255, 160, 220, 0.30),
+		0 0 40px rgba(180, 140, 255, 0.15);
 	transition: filter 0.3s ease, transform 0.3s ease;
+	animation: viewport-idle-shimmer 4s ease-in-out infinite;
 }
 
 .reel-strip {
@@ -65,18 +130,44 @@
 	display: block;
 }
 
-/* Hover lift */
+/* Hover lift — rainbow triple drop-shadow */
 .player-select-cube-left:hover .reel-viewport,
 .player-select-cube-right:hover .reel-viewport {
-	transform: translateY(-10px) scale(1.06);
-	filter: drop-shadow(0 12px 20px rgba(154, 83, 211, 0.55));
+	transform: translateY(-12px) scale(1.07);
+	filter:
+		drop-shadow(0  6px 16px rgba(255, 120, 200, 0.60))
+		drop-shadow(0 12px 30px rgba(255, 210,  80, 0.45))
+		drop-shadow(0  0   20px rgba(160, 120, 255, 0.40));
 }
 
-/* Sparkle burst on land */
+/* Sparkle burst on land — rainbow/gold */
 @keyframes reel-sparkle {
-	0%   { box-shadow: inset 0 0 30px rgba(154,83,211,0.2), 0 0 25px rgba(154,83,211,0.35); }
-	35%  { box-shadow: inset 0 0 40px rgba(255,100,220,0.5), 0 0 50px rgba(255,220,50,0.9), 0 0 80px rgba(100,200,255,0.6); }
-	100% { box-shadow: inset 0 0 30px rgba(154,83,211,0.2), 0 0 25px rgba(154,83,211,0.35); }
+	0% {
+		box-shadow:
+			inset 0 0 20px rgba(255, 180, 230, 0.15),
+			0 0 20px rgba(255, 160, 220, 0.35),
+			0 0 45px rgba(180, 140, 255, 0.15);
+	}
+	20% {
+		box-shadow:
+			inset 0 0 50px rgba(255, 220,  80, 0.60),
+			0 0  60px rgba(255, 100, 200, 1.00),
+			0 0  90px rgba(100, 220, 255, 0.70),
+			0 0 120px rgba(200,  80, 255, 0.50);
+	}
+	55% {
+		box-shadow:
+			inset 0 0 35px rgba(255, 200, 120, 0.40),
+			0 0 40px rgba(255, 160,  80, 0.70),
+			0 0 70px rgba(255, 100, 180, 0.50),
+			0 0 90px rgba(150, 100, 255, 0.30);
+	}
+	100% {
+		box-shadow:
+			inset 0 0 20px rgba(255, 180, 230, 0.15),
+			0 0 20px rgba(255, 160, 220, 0.35),
+			0 0 45px rgba(180, 140, 255, 0.15);
+	}
 }
 
 .reel-viewport.sparkling {
@@ -127,4 +218,4 @@
 .reel-star:nth-child(1) { animation-delay: 0s;    color: #ff6eb4; }
 .reel-star:nth-child(2) { animation-delay: -0.3s; color: #ffd700; }
 .reel-star:nth-child(3) { animation-delay: -0.6s; color: #00e5ff; }
-.reel-star:nth-child(4) { animation-delay: -0.9s; color: #b94eff; }
+.reel-star:nth-child(4) { animation-delay: -0.9s; color: #ff9de2; }
