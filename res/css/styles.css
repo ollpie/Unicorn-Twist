@@ -808,8 +808,14 @@ table.table-hs tr:first-child td:last-child {
   transition: transform 0.15s ease;
 }
 
+@keyframes hover-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.18); }
+}
+
 #start-button img:hover,
 .hs-button:hover,
 #start-ps:hover {
-  transform: scale(1.06);
+  animation: rainbow-shimmer 2.4s ease-in-out infinite,
+             hover-pulse 0.6s ease-in-out infinite;
 }
