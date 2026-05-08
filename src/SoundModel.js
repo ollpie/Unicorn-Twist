@@ -61,8 +61,14 @@ App.SoundModel = (function() {
     },
 
     playSong = function() {
-        song.play();
         song.volume=0.7;
+        var p = song.play();
+        if(p !== undefined) {
+            p.catch(function() {
+                songMute = true;
+                $(that).trigger("autoplayBlocked", []);
+            });
+        }
     },
 
     changeSoundPlay = function(){

@@ -147,9 +147,20 @@ App.StartMenuView = (function() {
        $(that).trigger("switchPage", []);
     };
 
+    syncMusicIcon = function(paused) {
+        if(paused) {
+            $musicButton.attr('src', ICON_PLAY);
+            $musicDiv.text("Play Music");
+        } else {
+            $musicButton.attr('src', ICON_PAUSE);
+            $musicDiv.text("Stop Music");
+        }
+    };
+
     that.init = init;
     that.onShowDummy = onShowDummy;
     that.onHideDummy = onHideDummy;
+    that.syncMusicIcon = syncMusicIcon;
 
 	return that;
     

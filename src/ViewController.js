@@ -25,6 +25,7 @@ App.ViewController = (function() {
     init = function() {
         soundModel = App.SoundModel.init();
         $(soundModel).on("setSoundInfo", onSetSoundInfo);
+        $(soundModel).on("autoplayBlocked", onAutoplayBlocked);
         playerSelectView = App.PlayerSelectView.init();
         gameLogic = App.GameLogic.init();
         gameView = App.GameView.init();
@@ -181,6 +182,10 @@ App.ViewController = (function() {
 
     song = function() {
         soundModel.playSong();
+    },
+
+    onAutoplayBlocked = function() {
+        startMenuView.syncMusicIcon(true);
     },
 
     onResetHighscore = function(){
