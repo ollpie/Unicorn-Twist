@@ -288,75 +288,35 @@ body {
     vertical-align: middle;
 }
 
-.progress-attack, .progress-defense, .progress-awesomeness{
-	position: absolute; 
+.progress-attack, .progress-defense, .progress-awesomeness {
+	position: relative;
 	width: 150px;
-	height: 15px;
-	margin-left: 120px;
+	height: 13px;
+	margin: 1px 0 3px 0;
 }
 
-.progress-attack{
-	margin-top: 30px;
+.nameP1, .nameP2,
+.attackP1, .defenseP1, .awesomenessP1,
+.attackP2, .defenseP2, .awesomenessP2 {
+	position: static;
+	margin: 0;
+	font-size: 13px;
 }
 
-.progress-defense{
-	margin-top: 65px;
-}
-
-.progress-awesomeness{
-	margin-top: 100px;
-}
-
-.attackP1, .defenseP1, .awesomenessP1, .nameP1{
-	position: absolute;
-	margin-left: 120px;
-}
-
-.attackP2, .defenseP2, .awesomenessP2{
-	position: absolute;
-}
-
-.attackP2{
-	margin-left: 221px;
-}
-
-.defenseP2{
-	margin-left: 190px;
-}
-
-.awesomenessP2{
-	margin-left: 177px;
-}
-
-.nameP1, .nameP2{
-	margin-top: -10px;
+.nameP1, .nameP2 {
 	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 3px;
 }
 
-.nameP2{
-	right: 0;
-	margin-right: 116px;
-	position: absolute;
+.attackP1, .attackP2,
+.defenseP1, .defenseP2,
+.awesomenessP1, .awesomenessP2 {
+	margin-top: 3px;
 }
 
-.attackP1, .attackP2{
-	margin-top: 10px;
-}
-
-.defenseP1, .defenseP2{
-	margin-top: 45px;
-}
-
-.awesomenessP1, .awesomenessP2{
-	margin-top: 80px;
-}
-
-.power-p2{
-	margin-left: -85px;
-}
-
-.power-p1, .power-p2{
-	margin-top: 20px;
+.power-p1, .power-p2 {
+	margin: 0;
 	opacity: 1.0;
 }
 
@@ -604,17 +564,32 @@ body {
 }
 
 .description {
-	width:300px;
-	height:150px;
+	width: 210px;
+	height: auto;
+	padding: 10px 14px;
 	background-color: #EEE;
-	position:absolute;
+	position: absolute;
 	border-radius: 10px;
-	border-color: #126BC4;
+	border: 1px solid #126BC4;
 	opacity: 0.8;
-  	top:0;
-  	z-index: 1;
-  	border-width: 1px;
-    border-style: solid;
+	top: 0;
+	z-index: 1;
+}
+
+#description-right {
+	text-align: right;
+}
+
+#description-right .power-p2 {
+	display: flex;
+	flex-direction: column;
+}
+
+#description-right .progress-attack,
+#description-right .progress-defense,
+#description-right .progress-awesomeness {
+	align-self: flex-end;
+	transform: scaleX(-1);
 }
 
 .descr-text{

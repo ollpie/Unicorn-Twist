@@ -78,11 +78,18 @@ App.PlayerSelectView = (function() {
     spinReel = function($strip, $viewport, $stars, idx, $atk, $def, $awe, $name) {
         var targetY = -(idx * REEL_HEIGHT);
 
-        // Squash on click
+        // All effects fire immediately on click
+        App.SoundModel.playSchnaub();
+        updateBars(idx, $atk, $def, $awe);
+        $name.text(name[idx]);
+
         $viewport.addClass("squashing");
         setTimeout(function() { $viewport.removeClass("squashing"); }, 400);
 
-        // Slot spin: overshoot by one extra slot then elastic back
+        $stars.addClass("visible");
+        setTimeout(function() { $stars.removeClass("visible"); }, 1200);
+
+        // Slot spin: overshoot then elastic back
         var overshoot = targetY - (idx < 2 ? REEL_HEIGHT * 0.4 : -REEL_HEIGHT * 0.4);
 
         gsap.to($strip[0], {
@@ -95,16 +102,9 @@ App.PlayerSelectView = (function() {
                     y: targetY,
                     ease: "elastic.out(1, 0.45)",
                     onComplete: function() {
-                        // Sparkle burst
+                        // Sparkle burst on land
                         $viewport.addClass("sparkling");
                         setTimeout(function() { $viewport.removeClass("sparkling"); }, 560);
-
-                        // Orbiting stars
-                        $stars.addClass("visible");
-                        setTimeout(function() { $stars.removeClass("visible"); }, 1200);
-
-                        updateBars(idx, $atk, $def, $awe);
-                        $name.text(name[idx]);
                     }
                 });
             }
