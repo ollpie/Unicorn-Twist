@@ -816,3 +816,31 @@ table.table-hs tr:first-child th:last-child,
 table.table-hs tr:first-child td:last-child {
     border-top-right-radius:10px
 }
+
+/* ── Rainbow Shimmer ── */
+@keyframes rainbow-shimmer {
+  0%   { filter: hue-rotate(0deg)   drop-shadow(0 0 12px rgba(255,100,200,0.9)) brightness(1.05); }
+  25%  { filter: hue-rotate(90deg)  drop-shadow(0 0 18px rgba(100,200,255,0.9)) brightness(1.12); }
+  50%  { filter: hue-rotate(180deg) drop-shadow(0 0 12px rgba(180,100,255,0.9)) brightness(1.05); }
+  75%  { filter: hue-rotate(270deg) drop-shadow(0 0 18px rgba(255,220,50,0.9))  brightness(1.12); }
+  100% { filter: hue-rotate(360deg) drop-shadow(0 0 12px rgba(255,100,200,0.9)) brightness(1.05); }
+}
+
+#start-button img,
+.hs-button,
+#start-ps {
+  animation: rainbow-shimmer 2.4s ease-in-out infinite;
+  transition: transform 0.15s ease;
+}
+
+@keyframes hover-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.18); }
+}
+
+#start-button img:hover,
+.hs-button:hover,
+#start-ps:hover {
+  animation: rainbow-shimmer 2.4s ease-in-out infinite,
+             hover-pulse 0.6s ease-in-out infinite;
+}
