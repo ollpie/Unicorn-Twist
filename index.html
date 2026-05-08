@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Unicorn Twist</title>
         <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="res/css/keyboard.css">
@@ -11,6 +12,7 @@
     </head>
 
     <body>
+        <div class="scale-wrapper">
         <div class="container">
             <audio id="sound" preload="auto"> 
                 <source id="s" src="res/Sounds/wiha.wav"/> 
@@ -419,6 +421,7 @@
         <div id="arrow_back_div">
             <img id="arrow_back" src="res/Pictures/Icons/arrow_back.png">
         </div>
+        </div>
 
 
         <script src="libs/jquery-2.0.3.min.js"></script>
@@ -444,6 +447,22 @@
 
        
         <script>
+            (function() {
+                var BASE_W = 1024;
+                var BASE_H = 640;
+                var wrapper = document.querySelector('.scale-wrapper');
+
+                function rescale() {
+                    var scaleX = window.innerWidth / BASE_W;
+                    var scaleY = window.innerHeight / BASE_H;
+                    var scale = Math.min(scaleX, scaleY);
+                    wrapper.style.transform = 'translateX(-50%) scale(' + scale + ')';
+                }
+
+                window.addEventListener('resize', rescale);
+                rescale();
+            })();
+
             App.init();
         </script>
     </body>
