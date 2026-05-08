@@ -53,8 +53,8 @@ App.PlayerSelectView = (function() {
       $namePlayer2 = $('.nameP2');
       $button = $("#start-ps");
       $button.on("click", onButtonClick);
-      $cubeLeft.on("click", onTurnLeftCube);
-      $cubeRight.on("click", onTurnRightCube);
+      $cubeLeft.closest(".player-select-cube-left").on("click", onTurnLeftCube);
+      $cubeRight.closest(".player-select-cube-right").on("click", onTurnRightCube);
       $cubeLeft.addClass("show-2");
       $cubeRight.addClass("show-2");
       showNewUnicorn(cubeRightPos, $descrTextRight, $descrPicRight, cubeIdRight);
