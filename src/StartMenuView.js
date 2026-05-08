@@ -19,6 +19,7 @@ App.StartMenuView = (function() {
     startScreen = ".start",
     highscoreView = ".highscore-view",
     playerSelect = ".player-select",
+    indicatorShown = false,
 
     init = function() {
     	$startButton = $("#start-button");
@@ -40,6 +41,10 @@ App.StartMenuView = (function() {
         $backButton.on("click", onBackButtonClicked);
         $musicButton.hover(toggleMusic);
         $soundButton.hover(toggleSound);
+
+        setTimeout(function() {
+            showMusicIndicator();
+        }, 500);
 
         setTimeout(function(){
         var x = window.location.hash;
@@ -87,7 +92,23 @@ App.StartMenuView = (function() {
     	return that; 
     },
 
+    showMusicIndicator = function() {
+        if(!indicatorShown) {
+            indicatorShown = true;
+            $musicDiv.text("Play Music");
+            $musicDiv.addClass("play-indicator");
+            setTimeout(function() {
+                hideMusicIndicator();
+            }, 5000);
+        }
+    },
+
+    hideMusicIndicator = function() {
+        $musicDiv.removeClass("play-indicator");
+    },
+
     toggleMusic = function() {
+        hideMusicIndicator();
         $musicDiv.toggleClass("attack-icon-visible");
     },
 
@@ -109,6 +130,7 @@ App.StartMenuView = (function() {
     },
 
     onChangeMusicPlay = function(){
+        hideMusicIndicator();
         $(that).trigger("changeMusicPlay", []);
         if($musicButton.attr('src') == ICON_PAUSE){
             $musicButton.attr('src', ICON_PLAY);
@@ -151,9 +173,11 @@ App.StartMenuView = (function() {
         if(paused) {
             $musicButton.attr('src', ICON_PLAY);
             $musicDiv.text("Play Music");
+            showMusicIndicator();
         } else {
             $musicButton.attr('src', ICON_PAUSE);
             $musicDiv.text("Stop Music");
+            hideMusicIndicator();
         }
     };
 
