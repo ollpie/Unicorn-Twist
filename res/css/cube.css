@@ -92,8 +92,9 @@
 
 .cube-select-hint {
 	font-family: "CurlyGirl", cursive;
-	color: #9A53D3;
-	font-size: 17px;
+	color: #6B5100;
+	font-size: 19px;
+	font-weight: bold;
 	text-align: center;
 	position: absolute;
 	top: 10px;
@@ -101,15 +102,19 @@
 	right: 0;
 	margin: 0;
 	pointer-events: none;
-	text-shadow: 1px 1px 0 #fff, 0 0 8px rgba(208, 144, 181, 0.6);
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
 	letter-spacing: 1px;
-	opacity: 0.85;
+	opacity: 0.9;
+}
+
+.player-select-cube-left .cube-select-hint {
+	text-align: left;
 }
 
 .scene {
 	position: absolute;
 	display: inline-block;
-	margin-top: 50px;
+	margin-top: 75px;
 	width: 200px;
 	height: 200px;
 	-webkit-perspective: 600px;
