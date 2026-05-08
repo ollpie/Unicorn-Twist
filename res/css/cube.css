@@ -19,7 +19,7 @@
 	will-change: transform;
 }
 
-.player-select-cube-left  { left: 100px;  animation-delay:  0s;   }
+.player-select-cube-left  { left: 5px;    animation-delay:  0s;   }
 .player-select-cube-right { right: 5px;   animation-delay: -1.5s; }
 
 .cube-select-hint {
