@@ -577,14 +577,38 @@ html, body {
 .description {
 	width: 210px;
 	height: auto;
-	padding: 10px 14px;
-	background-color: #EEE;
+	padding: 12px 16px;
+	background: rgba(255, 255, 255, 0.55);
 	position: absolute;
-	border-radius: 10px;
-	border: 1px solid #126BC4;
-	opacity: 0.8;
+	border-radius: 22px;
+	border: none;
+	box-shadow:
+		0 8px 24px rgba(200, 200, 255, 0.35),
+		0 2px 8px  rgba(180, 180, 220, 0.20);
 	top: 0;
 	z-index: 1;
+	overflow: visible;
+}
+
+/* Cloud puff bumps above the stat boxes */
+.description::before {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+	top: -18px; left: 22px;
+	width: 72px; height: 32px;
+	background: rgba(255, 255, 255, 0.55);
+	border-radius: 50%;
+}
+
+.description::after {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+	top: -11px; left: 78px;
+	width: 52px; height: 24px;
+	background: rgba(255, 255, 255, 0.55);
+	border-radius: 50%;
 }
 
 #description-right {
