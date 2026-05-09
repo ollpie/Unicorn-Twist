@@ -13,7 +13,8 @@
 	position: absolute;
 	width: 300px;
 	height: 500px;
-	margin-top: 50px;
+	top: 80px;
+	margin-top: 0;
 	cursor: pointer;
 	animation: unicorn-float 3s ease-in-out infinite;
 	will-change: transform;
@@ -44,12 +45,12 @@
 .cloud-pedestal {
 	position: absolute;
 	pointer-events: none;
-	left: 20px;
-	width: 260px;
-	top: 220px;
-	height: 90px;
+	left: 22px;
+	width: 256px;
+	top: 180px;
+	height: 255px;
 	background: rgba(255, 255, 255, 0.92);
-	border-radius: 50% / 60%;
+	border-radius: 72px 22px 14px 10px / 24px 58px 10px 16px;
 	box-shadow:
 		0 8px 24px rgba(200, 200, 255, 0.35),
 		0 2px 8px  rgba(180, 180, 220, 0.20);
@@ -61,7 +62,7 @@
 	pointer-events: none;
 	top: -28px; left: 28px;
 	width: 80px; height: 60px;
-	background: rgba(255, 255, 255, 0.88);
+	background: rgba(255, 255, 255, 0.92);
 	border-radius: 50%;
 }
 
@@ -71,7 +72,7 @@
 	pointer-events: none;
 	top: -20px; right: 30px;
 	width: 100px; height: 55px;
-	background: rgba(255, 255, 255, 0.88);
+	background: rgba(255, 255, 255, 0.92);
 	border-radius: 50%;
 }
 
@@ -217,44 +218,84 @@
 .reel-star:nth-child(3) { animation-delay: -0.6s; color: #00e5ff; }
 .reel-star:nth-child(4) { animation-delay: -0.9s; color: #ff9de2; }
 
-/* ── Stat box positioned inside cube container ── */
+/* ── Stat box inside cube container ── */
 .player-select-cube-left .description,
 .player-select-cube-right .description {
 	position: absolute;
-	top: 318px;
-	left: 20px;
+	top: 296px;
+	left: 22px;
 	right: auto;
-	width: 260px;
-	padding: 10px 14px 14px;
-	border-radius: 16px;
+	width: 256px;
+	padding: 0 22px 14px;
+	background: transparent;
+	box-shadow: none;
+	border: none;
+	border-radius: 0;
+	text-align: left;
 	z-index: 2;
 }
 
-/* Puff bumps flipped to bottom of stat box */
+/* Hide cloud puff bumps on stat box */
 .player-select-cube-left .description::before,
-.player-select-cube-right .description::before {
-	top: auto;
-	bottom: -18px;
-	left: 28px;
-	width: 80px;
-	height: 30px;
-}
-
 .player-select-cube-left .description::after,
+.player-select-cube-right .description::before,
 .player-select-cube-right .description::after {
-	top: auto;
-	bottom: -11px;
-	left: 100px;
-	width: 60px;
-	height: 26px;
+	display: none;
 }
 
-/* Widen progress bars to fill the 260px cloud card */
+/* Reset all paragraph margins inside description */
+.player-select-cube-left .description p,
+.player-select-cube-right .description p {
+	margin: 0;
+}
+
+/* Horse name: Press Start 2P pixel font */
+.player-select-cube-left .description .nameP1,
+.player-select-cube-right .description .nameP2 {
+	font-family: "Press Start 2P", cursive;
+	font-size: 11px;
+	color: #6B3A00;
+	line-height: 1.5;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+	margin-bottom: 10px;
+}
+
+/* Stat labels: smaller pixel font */
+.player-select-cube-left .description .attackP1,
+.player-select-cube-left .description .defenseP1,
+.player-select-cube-left .description .awesomenessP1,
+.player-select-cube-right .description .attackP2,
+.player-select-cube-right .description .defenseP2,
+.player-select-cube-right .description .awesomenessP2 {
+	font-family: "Press Start 2P", cursive;
+	font-size: 7px;
+	color: #6B3A00;
+	line-height: 1.4;
+	margin: 4px 0 2px;
+}
+
+/* Progress bars: left cube — left-aligned */
 .player-select-cube-left .progress-attack,
 .player-select-cube-left .progress-defense,
-.player-select-cube-left .progress-awesomeness,
+.player-select-cube-left .progress-awesomeness {
+	width: 210px;
+	margin: 0;
+}
+
+/* Progress bars: right cube — right-aligned and fill right-to-left */
 .player-select-cube-right .progress-attack,
 .player-select-cube-right .progress-defense,
 .player-select-cube-right .progress-awesomeness {
-	width: 180px;
+	width: 210px;
+	margin: 0 0 0 auto;
+	transform: scaleX(-1);
+}
+
+/* Right cube: align text and labels right */
+.player-select-cube-right .description {
+	text-align: right;
+}
+
+.player-select-cube-right .description p {
+	text-align: right;
 }
