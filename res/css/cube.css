@@ -216,3 +216,45 @@
 .reel-star:nth-child(2) { animation-delay: -0.3s; color: #ffd700; }
 .reel-star:nth-child(3) { animation-delay: -0.6s; color: #00e5ff; }
 .reel-star:nth-child(4) { animation-delay: -0.9s; color: #ff9de2; }
+
+/* ── Stat box positioned inside cube container ── */
+.player-select-cube-left .description,
+.player-select-cube-right .description {
+	position: absolute;
+	top: 318px;
+	left: 20px;
+	right: auto;
+	width: 260px;
+	padding: 10px 14px 14px;
+	border-radius: 16px;
+	z-index: 2;
+}
+
+/* Puff bumps flipped to bottom of stat box */
+.player-select-cube-left .description::before,
+.player-select-cube-right .description::before {
+	top: auto;
+	bottom: -18px;
+	left: 28px;
+	width: 80px;
+	height: 30px;
+}
+
+.player-select-cube-left .description::after,
+.player-select-cube-right .description::after {
+	top: auto;
+	bottom: -11px;
+	left: 100px;
+	width: 60px;
+	height: 26px;
+}
+
+/* Widen progress bars to fill the 260px cloud card */
+.player-select-cube-left .progress-attack,
+.player-select-cube-left .progress-defense,
+.player-select-cube-left .progress-awesomeness,
+.player-select-cube-right .progress-attack,
+.player-select-cube-right .progress-defense,
+.player-select-cube-right .progress-awesomeness {
+	width: 180px;
+}
